@@ -1,7 +1,7 @@
 {
-	"telemetry": {
-		"notifiedAt": "1711667417697",
-		"anonymousId": "76be9920093d28a5e83b76e8c8b812fb2f84c79a6f98cfefbfff1c00981d9cb2",
-		"salt": "495c9c795fde2d3da5a35a97bb81e105"
-	}
+  "telemetry": {
+    "notifiedAt": "1711667417697",
+    "anonymousId": "76be9920093d28a5e83b76e8c8b812fb2f84c79a6f98cfefbfff1c00981d9cb2",
+    "salt": "495c9c795fde2d3da5a35a97bb81e105"
+  }
 }
