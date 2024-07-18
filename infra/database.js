@@ -6,7 +6,7 @@ async function query(queryObject) {
     port: 5432,
     user: "postgres",
     database: "postgres",
-    password: process.env.POSTGRESS_PASSWORD,
+    password: process.env.POSTGRES_PASSWORD,
   });
   await client.connect();
   await client.query(queryObject);
