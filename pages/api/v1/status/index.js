@@ -15,7 +15,7 @@ async function status(request, response) {
   const databaseOpenedConnectionsResult = await database.query(
     "SELECT * FROM pg_stat_activity WHERE datname = 'local_db';",
   );
-  console.log(databaseOpenedConnectionsResult.rows);
+  console.log(databaseOpenedConnectionsResult.rows.length);
 
   response.status(200).json({
     updated_at: updatedAt,
