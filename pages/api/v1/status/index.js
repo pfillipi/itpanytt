@@ -13,7 +13,7 @@ async function status(request, response) {
     databaseMaxConnectionsResult.rows[0].max_connections;
 
   const databaseOpenedConnectionsResult = await database.query(
-    "SELECT * FROM pg_stat_activity WHERE datname = 'local_db';",
+    "SELECT count(*) FROM pg_stat_activity WHERE datname = 'local_db';",
   );
   const databaseOpenedConnectionsValue =
     databaseOpenedConnectionsResult.rows.length;
@@ -24,6 +24,7 @@ async function status(request, response) {
       database: {
         version: databaseVersionValue,
         max_connections: parseInt(databaseMaxConnectionsValue),
+        opened_connections: databaseOpenedConnectionsValue,
       },
     },
   });
