@@ -13,7 +13,7 @@ async function status(request, response) {
     databaseMaxConnectionsResult.rows[0].max_connections;
 
   const databaseOpenedConnectionsResult = await database.query(
-    "SELECT FROM pg_stat_activity;",
+    "SELECT FROM pg_stat_activity WHERE datname = 'local_db';",
   );
   console.log(databaseOpenedConnectionsResult.rows);
 
@@ -29,7 +29,7 @@ async function status(request, response) {
       database: {
         version: databaseVersionValue,
         max_connections: parseInt(databaseMaxConnectionsValue),
-        opened_connections: databaseOpenedConnectionsValue,
+        //        opened_connections: databaseOpenedConnectionsValue,
       },
     },
   });
