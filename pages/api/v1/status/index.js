@@ -12,11 +12,16 @@ async function status(request, response) {
   const databaseMaxConnectionsValue =
     databaseMaxConnectionsResult.rows[0].max_connections;
 
-  const databaseName = "local_db";
+  const databaseName = request.query.databaseName;
+  console.log(`Valgt database: ${databaseName}`);
   const databaseOpenedConnectionsResult = await database.query(
     `SELECT count(*)::int FROM pg_stat_activity WHERE datname = '${databaseName}';`,
   );
   //    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = 'local_db';",
+  //    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = '';",
+  //    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = '';'",
+  //    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = ''; SELECT pg_sleep(4); ';",
+  //    "SELECT count(*)::int FROM pg_stat_activity WHERE datname = ''; SELECT pg_sleep(4); --';",
   const databaseOpenedConnectionsValue =
     databaseOpenedConnectionsResult.rows[0].count;
 
