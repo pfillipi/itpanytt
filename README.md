@@ -2,6 +2,7 @@
 
 Innhold rettet mot personer som jobber innen programvareutvikling og teknologi.
 
+- Prosjektarkitektur;
 - Prosjekt utvikling;
 - Build front end;
 - Deployment på Vercel;
